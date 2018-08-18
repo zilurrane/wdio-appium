@@ -6,19 +6,27 @@ exports.config = {
     specs: [
         './wdio-tests/**/*.js'
     ],
-    host: appiumHost,
-    port: appiumPort,
-    maxInstances: 1,
-    capabilities: [{
-        appiumVersion: '1.8.1',
-        browserName: 'chrome',
-        platformName: 'Android',
-        platformVersion: '8.1.0',
-        deviceName: '3f27126',
-        waitforTimeout: timeout,
-        commandTimeout: timeout,
-        newCommandTimeout: timeout
-    }],
+    maxInstances: 2,
+    capabilities: [
+        //     {
+        //     appiumVersion: '1.8.1',
+        //     browserName: 'chrome',
+        //     platformName: 'Android',
+        //     platformVersion: '8.1.0',
+        //     deviceName: '3f27126',
+        //     waitforTimeout: timeout,
+        //     commandTimeout: timeout,
+        //     newCommandTimeout: timeout
+        // },
+        {
+            maxInstances: 1,
+            browserName: 'chrome'
+        },
+        {
+            maxInstances: 1,
+            browserName: 'firefox'
+        }
+    ],
     services: ['appium'],
     appium: {
         waitStartTime: timeout,
@@ -40,7 +48,7 @@ exports.config = {
     bail: 0,
     screenshotPath: './errorShots/',
     waitforTimeout: timeout,
-    connectionRetryTimeout: 10*timeout,
+    connectionRetryTimeout: 10 * timeout,
     connectionRetryCount: 3,
     framework: 'mocha',
     reporters: ['dot'],
