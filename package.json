@@ -1,0 +1,25 @@
+{
+  "name": "wdio-appium",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "wdio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zilurrane/wdio-appium.git"
+  },
+  "author": "Zilu Rane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zilurrane/wdio-appium/issues"
+  },
+  "homepage": "https://github.com/zilurrane/wdio-appium#readme",
+  "devDependencies": {
+    "appium": "^1.8.1",
+    "wdio-appium-service": "^0.2.3",
+    "wdio-mocha-framework": "^0.6.2",
+    "webdriverio": "^4.13.2"
+  }
+}
