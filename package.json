@@ -4,7 +4,8 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "wdio"
+    "test": "wdio",
+    "appium": "appium --nodeconfig appiumNodeConfig.json"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,6 @@
   "homepage": "https://github.com/zilurrane/wdio-appium#readme",
   "devDependencies": {
     "appium": "^1.8.1",
-    "wdio-appium-service": "^0.2.3",
     "wdio-mocha-framework": "^0.6.2",
     "webdriverio": "^4.13.2"
   }

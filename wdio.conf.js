@@ -1,46 +1,41 @@
-const timeout = 10000
+const timeout = 50000
 const appiumHost = '127.0.0.1'
-const appiumPort = 4730
+const appiumPort = 4723
 
 exports.config = {
     specs: [
         './wdio-tests/**/*.js'
     ],
-    maxInstances: 2,
-    capabilities: [
-        //     {
-        //     appiumVersion: '1.8.1',
-        //     browserName: 'chrome',
-        //     platformName: 'Android',
-        //     platformVersion: '8.1.0',
-        //     deviceName: '3f27126',
-        //     waitforTimeout: timeout,
-        //     commandTimeout: timeout,
-        //     newCommandTimeout: timeout
-        // },
-        {
-            maxInstances: 1,
-            browserName: 'chrome'
+    maxInstances: 3,
+    capabilities: [{
+            appiumVersion: '1.8.1',
+            browserName: 'chrome',
+            platformName: 'Android',
+            platformVersion: '8.1.0',
+            deviceName: '3f27126',
+            waitforTimeout: timeout,
+            commandTimeout: timeout,
+            newCommandTimeout: timeout
         },
         {
             maxInstances: 1,
-            browserName: 'firefox'
+            browserName: 'chrome',
+            platform: 'Linux',
+            platformName: 'Linux',
+            waitforTimeout: timeout,
+            commandTimeout: timeout,
+            newCommandTimeout: timeout
+        },
+        {
+            maxInstances: 1,
+            browserName: 'firefox',
+            platform: 'Linux',
+            platformName: 'Linux',
+            waitforTimeout: timeout,
+            commandTimeout: timeout,
+            newCommandTimeout: timeout
         }
     ],
-    services: ['appium'],
-    appium: {
-        waitStartTime: timeout,
-        waitforTimeout: timeout,
-        command: 'appium',
-        logFileName: 'appium.log',
-        args: {
-            address: appiumHost,
-            port: appiumPort,
-            commandTimeout: timeout,
-            sessionOverride: true,
-            debugLogSpacing: true
-        }
-    },
     sync: true,
     logLevel: 'verbose',
     coloredLogs: true,
@@ -53,7 +48,8 @@ exports.config = {
     framework: 'mocha',
     reporters: ['dot'],
     mochaOpts: {
-        ui: 'bdd'
+        ui: 'bdd',
+        timeout: 20000
     },
 
     onPrepare: function () {
